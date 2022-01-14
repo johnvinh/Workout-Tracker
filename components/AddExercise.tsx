@@ -1,14 +1,32 @@
 import {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, StyleSheet, GestureResponderEvent} from 'react-native';
 
-function AddExercise()
+interface Props
+{
+        setExercises: Function
+}
+
+function AddExercise(props: Props)
 {
         const [exerciseName, setExerciseName] = useState('');
 
+        function handleChangeText(text: string)
+        {
+                setExerciseName(text);
+        }
+
+        function handleButtonPress(event: GestureResponderEvent)
+        {
+                props.setExercises((previousExercises: string[]) =>
+                {
+                        props.setExercises([exerciseName, ...previousExercises]);
+                });
+        }
+
         return (
                 <View>
-                        <TextInput style={styles.input} placeholder="New exercise..." />
-                        <TouchableOpacity style={styles.button} >
+                        <TextInput style={styles.input} placeholder="New exercise..." onChangeText={handleChangeText} />
+                        <TouchableOpacity style={styles.button} onPress={handleButtonPress} >
                                 <Text style={styles.buttonText}>Add Exercise</Text>
                         </TouchableOpacity>
                 </View>

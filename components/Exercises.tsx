@@ -17,7 +17,9 @@ function Exercises(props: Props)
                 'Pull-downs',
                 'Triceps Extension',
                 'Biceps Curl',
-                'Other Biceps Curl'
+                'Other Biceps Curl',
+                "Abdominal",
+                "Crunches"
         ]);
 
         function navigateToExercise(exercise: string)
@@ -30,8 +32,8 @@ function Exercises(props: Props)
 
         return (
                 <>
-                        <AddExercise />
-                        <FlatList<string> data={exercises} renderItem={({item}) =>
+                        <AddExercise setExercises={setExercises} />
+                        <FlatList<string> keyExtractor={(item) => uuidv4() } data={exercises} renderItem={({item}) =>
                         {
                                 return (
                                         <TouchableOpacity key={uuidv4()} style={styles.item} onPress={() => navigateToExercise(item)}>
