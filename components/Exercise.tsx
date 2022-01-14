@@ -28,7 +28,7 @@ function Exercise(props: Props)
 const styles = StyleSheet.create({
         title: {
                 fontWeight: 'bold',
-                fontSize: 50,
+                fontSize: 35,
                 textAlign: 'center'
         }
 });
