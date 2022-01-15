@@ -12,15 +12,7 @@ interface Props
 
 function Exercises(props: Props)
 {
-        const [exercises, setExercises] = useState([
-                'Chest Press',
-                'Pull-downs',
-                'Triceps Extension',
-                'Biceps Curl',
-                'Other Biceps Curl',
-                "Abdominal",
-                "Crunches"
-        ]);
+        const [exercises, setExercises] = useState([]);
 
         function navigateToExercise(exercise: string)
         {
